@@ -1,8 +1,32 @@
-﻿@{
+﻿@model List<Flag>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<table id="flagTable" class="table table-striped">
+    <thead>
+        <tr class="row justify-content-between">
+            <th>Ülke</th>
+            <th>Renkler</th>
+            <th class="ml-auto">Bayrak</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Flag flag in Model)
+        {
+        <tr>
+            <td>@flag.Country</td>
+            <td>@String.Join(",", flag.Colors.Select(x => x.ColorName))</td>
+            <td class="row justify-content-between"><img src="~/images/@flag.ImageUrl" alt="@flag.Country" class="w-25 ml-auto" /></td>
+        </tr>
+
+        }
+    </tbody>
+</table>
+
+@section Scripts{ 
+<script>
+
+    $("#flagTable").DataTable();
+</script>
+}

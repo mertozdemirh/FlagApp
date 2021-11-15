@@ -1,5 +1,6 @@
 ﻿using FlagApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -12,13 +13,20 @@ namespace FlagApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly UygulamaDbContext _db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, UygulamaDbContext db)
         {
             _logger = logger;
+            _db = db;
         }
 
         public IActionResult Index()
+        {
+            return View(_db.Flags.Include(x => x.Colors).ToList());
+        }
+
+        public IActionResult Create()
         {
             return View();
         }

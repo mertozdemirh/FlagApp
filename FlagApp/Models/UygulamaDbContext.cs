@@ -25,8 +25,8 @@ namespace FlagApp.Models
                 );
             modelBuilder.Entity<Flag>().Property(x => x.Country).IsRequired().HasMaxLength(400);
             modelBuilder.Entity<Flag>().HasData(
-                new Flag { Id = 1, Country = "Türkiye" },
-                new Flag { Id = 2, Country = "Arjantin" }
+                new Flag { Id = 1, Country = "Türkiye", ImageUrl="154-turkey.png"},
+                new Flag { Id = 2, Country = "Arjantin", ImageUrl= "199-argentina.png" }
                 );
 
             modelBuilder.Entity<Color>()

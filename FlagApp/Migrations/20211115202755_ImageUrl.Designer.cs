@@ -3,14 +3,16 @@ using FlagApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FlagApp.Migrations
 {
     [DbContext(typeof(UygulamaDbContext))]
-    partial class UygulamaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211115202755_ImageUrl")]
+    partial class ImageUrl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,14 +77,12 @@ namespace FlagApp.Migrations
                         new
                         {
                             Id = 1,
-                            Country = "Türkiye",
-                            ImageUrl = "154-turkey.png"
+                            Country = "Türkiye"
                         },
                         new
                         {
                             Id = 2,
-                            Country = "Arjantin",
-                            ImageUrl = "199-argentina.png"
+                            Country = "Arjantin"
                         });
                 });
 
