@@ -1,4 +1,17 @@
-﻿@{ 
+﻿@model FlagCreateViewModel
+
+@{ 
     ViewData["Title"] = "Ülke ekle";
 }
 
+<form method="post" asp-controller="Home" asp-action="Create">
+
+    <label>Ülke Adı</label>
+    <input asp-for="Flag.Country" class="form-control" />
+
+    <label>Bayrak</label>
+    <input asp-for="Image" class="form-control-file"/>
+
+    <input type="submit" class="btn btn-primary" value="Gönder"/>
+
+</form>
